@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register or Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 45%; 
+        }
+        .form-box {
+            max-width: 300px;
+            width: 100%;
+        }
+        h2 {
+            color: black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: black;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: purple;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Register</h2>
+            <form method="post" action="reg.php">
+                <label>Username: 
+                    <input type="text" name="username" required>
+                </label>
+                <label>Password: 
+                    <input type="password" name="password" required>
+                </label>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+
+        <div class="form-box">
+            <h2>Login</h2>
+            <form method="post" action="login.php">
+                <label>Username: 
+                    <input type="text" name="username" required>
+                </label>
+                <label>Password: 
+                    <input type="password" name="password" required>
+                </label>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
