@@ -1,25 +1,63 @@
-# COMP 484 - Full-Stack Web Devlopment Project
-============================================
+# Full-Stack Web Development Project
 
-Project Description:
-_____________________
-This is a full-stack web application. 
+## Project Overview
+This project is a full-stack web application designed to handle user registration, login, and a simple counter functionality. The application is built using PHP, MySQL, and HTML, and provides a basic demonstration of user authentication and session management.
 
-Description of Files:
-_____________________
-index.html - This is main HTML file that contains the user registration form and login form. This means a user can either make a new account or login to an existing one.
-reg.php - PHP script that handles registration checking to see if the username is taken, hashes the password, and stores users information in the MySQL database. If registering was successful then you will be redirected to the counter page.
-login.php - PHP script that handles user login. It verfies credentials against the stored data in the database. If it is correct then the user will be in the counter page. 
-index.php - The main application page that displays the current count. Users can increase their count by pressing the purple button. All information is also stored in MySQL.
-logout.php - PHP script that handles user logout by destroying the session and redirecting the user back to the login/registration page ('index.html').
+---
 
-Completion Status:
-_____________________
-- User registration: complete
-- User login: complete
-- Count increment function: complete 
-- Logout Function: complete
+## Features
+- **User Registration**: Allows users to create an account with a unique username and securely hashed password.
+- **User Login**: Authenticates users based on their credentials stored in the database.
+- **Counter Functionality**: Users can increment their personalized counter and save their progress in the database.
+- **User Logout**: Allows users to securely end their session and return to the login/registration page.
 
-Issues:
-_____________________
-- None
+---
+
+## File Descriptions
+1. **`index.html`**  
+   - Serves as the landing page for user registration and login.
+   - Users can either register a new account or log in to an existing one.
+
+2. **`reg.php`**  
+   - Handles user registration by checking if the username is already taken.
+   - Hashes passwords for secure storage in the MySQL database.
+   - Redirects users to the counter page upon successful registration.
+
+3. **`login.php`**  
+   - Authenticates users by verifying their credentials against the database.
+   - Redirects authenticated users to the counter page.
+
+4. **`index.php`**  
+   - Main application page where the user's current count is displayed.
+   - Provides a button for users to increment their counter.
+   - Saves counter information in the MySQL database.
+
+5. **`logout.php`**  
+   - Ends the user's session by destroying the session data.
+   - Redirects users back to the login/registration page (`index.html`).
+
+---
+
+## Technologies Used
+- **Frontend**: HTML5
+- **Backend**: PHP
+- **Database**: MySQL
+- **Session Management**: PHP Sessions
+
+---
+
+## Setup Instructions
+1. Clone or download the project files to your local system.
+2. Set up a MySQL database with the required tables:
+   ```sql
+   CREATE TABLE users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255) UNIQUE NOT NULL,
+       password VARCHAR(255) NOT NULL
+   );
+
+   CREATE TABLE counters (
+       user_id INT PRIMARY KEY,
+       count INT DEFAULT 0,
+       FOREIGN KEY (user_id) REFERENCES users(id)
+   );
